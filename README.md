@@ -1,7 +1,8 @@
 # prefect-storage-gitlab
 
 ## Ideas to Explore
-- base action to build off of `git clone https://oauth-key-goes-here@github.com/username/repo.git` (can be a personal access token too)
+
+- base action to build off of `git clone https://<token-name>:<token>@github.com/username/repo/folder`
   - may be able to construct something like this based off of a storage block
 - structure this after https://github.com/PrefectHQ/prefect/blob/d8178e882a55cb106e9c6ea5056899cb8330321f/src/prefect/filesystems.py#L731
   - this is the similarly functioning `GitHub` block that was just merged
