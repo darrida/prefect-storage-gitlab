@@ -1,6 +1,6 @@
 # prefect-storage-gitlab
 
-## Ideas to Explore
+### Ideas to Explore
 
 - base action to build off of `git clone https://<token-name>:<token>@github.com/username/repo/folder`
   - may be able to construct something like this based off of a storage block
@@ -12,6 +12,9 @@
   - Uses an inherited class called `ReadableDeploymentStorage`, which causes it to skip the upload step
 - [x] explore if the GitHub block is able to also pull and use submodules (unlike the GitLab functionality in Prefect 1.0)
   - submodules and directories successfully pull, import into main flow, and run
+
+### Task List
+
 - [ ] functioning proof of concepts:
   - [ ] public gitlab.com repo works without authorization
   - [x] private gitlab.com repo works (with authorization)
