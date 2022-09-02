@@ -45,13 +45,19 @@ class GitLab(ReadableDeploymentStorage):
         """
         cmd = "git clone"
 
-        if (self.token_name and not self.token_name) or not (self.token_name and self.token):
-            raise ValueError("If token is used, strings must be passed for both 'token_name' and 'token' parameters.")
+        if not (self.token_name and self.token):
+            raise ValueError(
+                "If token is used, strings must be passed for both 'token_name' and 'token' parameters."
+            )
         elif self.token_name and self.token:
-            if 'http' not in self.repository:
-                raise ValueError("GitLab token can only be used with a 'http(s)' clone path.")
-            prefix, url = self.repository.split('://')
-            repository_path = f"{prefix}://{self.token_name}:{self.token.get_secret_value()}@{url}"
+            if "http" not in self.repository:
+                raise ValueError(
+                    "GitLab token can only be used with a 'http(s)' git clone path."
+                )
+            prefix, url = self.repository.split("://")
+            repository_path = (
+                f"{prefix}://{self.token_name}:{self.token.get_secret_value()}@{url}"
+            )
         else:
             repository_path = self.repository
 
